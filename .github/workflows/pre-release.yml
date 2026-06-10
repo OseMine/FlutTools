@@ -3,7 +3,7 @@ name: Build and Pre-Release
 on:
   push:
     branches:
-      - main # Change to 'master' if your default branch uses that name
+      - master # Change to 'master' if your default branch uses that name
     paths:
       - 'gradle.properties' # Triggers only when you update your project version
 
