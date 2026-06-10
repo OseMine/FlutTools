@@ -1,0 +1,48 @@
+name: ChunkLoader
+version: 1.0
+main: de.oskar.chunkloader.ChunkLoader
+api-version: 1.26
+
+commands:
+  chunkloader:
+    description: Hauptbefehl für den Chunkloader
+    permission: chunkloader.use
+    aliases: [cl]
+  cladmin:
+    description: Admin-Befehl zum Verwalten aller Chunkloader
+    permission: chunkloader.admin
+  who:
+    description: Zeigt eine Liste aller Spieler und ihrer Discord-Namen
+    permission: chunkloader.who
+  whoreg:
+    description: Verknüpfe deinen Account mit deinem Discord-Namen
+    permission: chunkloader.who.register
+  cltimeout:
+    description: Verhängt ein Timeout über einen Spieler
+    permission: chunkloader.admin
+    aliases: [timeout]
+
+permissions:
+  chunkloader.use:
+    description: Darf Chunk-Loader setzen
+    default: true
+  chunkloader.admin:
+    description: Voller Admin-Zugriff (Loader löschen, Config, etc.)
+    default: op
+    children:
+      chunkloader.timeout.give: true   # Admins erben die Permission automatisch
+      chunkloader.use: true
+      chunkloader.who: true
+      chunkloader.timout.immune: true
+  chunkloader.who:
+    description: Darf /who nutzen
+    default: true
+  chunkloader.who.register:
+    description: Darf /whoreg nutzen
+    default: true
+  chunkloader.usetimeout:
+    description: Darf das eigene Timeout einsehen
+    default: true
+  chunkloader.timeout.immune:
+    description: Kann kein Timeout erhalten
+    default: false

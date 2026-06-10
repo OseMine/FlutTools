@@ -1,0 +1,2 @@
+# Maximale Anzahl an Loadern, die ein normaler Spieler gleichzeitig aktiv haben darf.
+max-loaders: 3
