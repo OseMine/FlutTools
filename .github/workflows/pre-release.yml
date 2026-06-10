@@ -1,0 +1,67 @@
+name: Build and Pre-Release
+
+on:
+  push:
+    branches:
+      - main # Change to 'master' if your default branch uses that name
+    paths:
+      - 'gradle.properties' # Triggers only when you update your project version
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Crucial for creating tags and releases
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0 # Fetches all history so we can safely tag
+
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: '21' # Paper plugins typically target Java 21
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+
+    - name: Extract Version from gradle.properties
+      id: get_version
+      run: |
+        # Reads 'version=x.y.z' from gradle.properties and strips spaces/quotes
+        VERSION=$(grep "^version" gradle.properties | cut -d'=' -f2 | xargs)
+        echo "VERSION=$VERSION" >> $GITHUB_ENV
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Build with Gradle
+      run: ./gradlew build
+
+    - name: Create and Push Tag
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        
+        # Creates a tag like v1.2.3-pre
+        TAG_NAME="v${{ env.VERSION }}-pre"
+        
+        # Check if the tag already exists to prevent workflow crashes
+        if git rev-parse "$TAG_NAME" >/dev/null 2>&1; then
+          echo "Tag $TAG_NAME already exists! Skipping tag creation."
+        else
+          git tag -a "$TAG_NAME" -m "Pre-release version ${{ env.VERSION }}"
+          git push origin "$TAG_NAME"
+        fi
+
+    - name: Release to GitHub
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: "v${{ env.VERSION }}-pre"
+        name: "Pre-release v${{ env.VERSION }}"
+        prerelease: true
+        draft: false
+        files: |
+          build/libs/*-all.jar
+          build/libs/*.jar
