@@ -1,4 +1,4 @@
-package de.oskar.chunkloader;
+package de.of.flutstuff;
 
 import org.bukkit.Location;
 

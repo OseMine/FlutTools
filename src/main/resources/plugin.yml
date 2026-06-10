@@ -1,48 +1,48 @@
-name: ChunkLoader
+name: FlutStuff
 version: 1.0
-main: de.oskar.chunkloader.ChunkLoader
+main: de.of.flutstuff.FlutStuff
 api-version: 1.26
 
 commands:
   chunkloader:
     description: Hauptbefehl für den Chunkloader
-    permission: chunkloader.use
+    permission: flutstuff.use
     aliases: [cl]
   cladmin:
     description: Admin-Befehl zum Verwalten aller Chunkloader
-    permission: chunkloader.admin
+    permission: flutstuff.admin
   who:
     description: Zeigt eine Liste aller Spieler und ihrer Discord-Namen
-    permission: chunkloader.who
+    permission: flutstuff.who
   whoreg:
     description: Verknüpfe deinen Account mit deinem Discord-Namen
-    permission: chunkloader.who.register
+    permission: flutstuff.who.register
   cltimeout:
     description: Verhängt ein Timeout über einen Spieler
-    permission: chunkloader.admin
+    permission: flutstuff.admin
     aliases: [timeout]
 
 permissions:
-  chunkloader.use:
+  flutstuff.use:
     description: Darf Chunk-Loader setzen
     default: true
-  chunkloader.admin:
+  flutstuff.admin:
     description: Voller Admin-Zugriff (Loader löschen, Config, etc.)
     default: op
     children:
-      chunkloader.timeout.give: true   # Admins erben die Permission automatisch
-      chunkloader.use: true
-      chunkloader.who: true
-      chunkloader.timout.immune: true
-  chunkloader.who:
+      flutstuff.timeout.give: true   # Admins erben die Permission automatisch
+      flutstuff.use: true
+      flutstuff.who: true
+      flutstuff.timout.immune: true
+  flutstuff.who:
     description: Darf /who nutzen
     default: true
-  chunkloader.who.register:
+  flutstuff.who.register:
     description: Darf /whoreg nutzen
     default: true
-  chunkloader.usetimeout:
+  flutstuff.usetimeout:
     description: Darf das eigene Timeout einsehen
     default: true
-  chunkloader.timeout.immune:
+  flutstuff.timeout.immune:
     description: Kann kein Timeout erhalten
     default: false

@@ -1,4 +1,4 @@
-package de.oskar.chunkloader;
+package de.of.flutstuff;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
@@ -19,7 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class ChunkLoader extends JavaPlugin implements Listener {
+public class FlutStuff extends JavaPlugin implements Listener {
 
     private File dataFile;
     private FileConfiguration dataConfig;

@@ -1,4 +1,4 @@
-package de.oskar.chunkloader;
+package de.of.flutstuff;
 
 public enum TimeoutStage {
     CHATHAMMING(1, "Chat-Sperre"),

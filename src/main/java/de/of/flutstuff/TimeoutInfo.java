@@ -1,4 +1,4 @@
-package de.oskar.chunkloader;
+package de.of.flutstuff;
 
 public class TimeoutInfo {
     private final TimeoutStage stage;

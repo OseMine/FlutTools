@@ -1,4 +1,4 @@
-package de.oskar.chunkloader;
+package de.of.flutstuff;
 
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
@@ -8,9 +8,9 @@ import java.util.List;
 @SuppressWarnings("UnstableApiUsage")
 public class AdminCommand {
 
-    private final ChunkLoader plugin;
+    private final FlutStuff plugin;
 
-    public AdminCommand(ChunkLoader plugin) {
+    public AdminCommand(FlutStuff plugin) {
         this.plugin = plugin;
     }
 
@@ -20,7 +20,7 @@ public class AdminCommand {
 
             commands.register(
                     Commands.literal("cladmin")
-                            .requires(sender -> sender.getSender().hasPermission("chunkloader.admin"))
+                            .requires(sender -> sender.getSender().hasPermission("flutstuff.admin"))
                             .executes(ctx -> {
                                 plugin.clearAllLoaders();
                                 ctx.getSource().getSender().sendMessage("§aAlle Chunk-Loader gelöscht.");

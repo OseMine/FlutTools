@@ -1,7 +1,6 @@
-package de.oskar.chunkloader;
+package de.of.flutstuff;
 
 import io.papermc.paper.command.brigadier.Commands;
-import io.papermc.paper.command.brigadier.argument.ArgumentTypes;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import org.bukkit.Bukkit;
@@ -16,9 +15,9 @@ import java.util.UUID;
 @SuppressWarnings("UnstableApiUsage")
 public class WhoCommand {
 
-    private final ChunkLoader plugin;
+    private final FlutStuff plugin;
 
-    public WhoCommand(ChunkLoader plugin) {
+    public WhoCommand(FlutStuff plugin) {
         this.plugin = plugin;
     }
 
@@ -29,7 +28,7 @@ public class WhoCommand {
             // /who
             commands.register(
                     Commands.literal("who")
-                            .requires(sender -> sender.getSender().hasPermission("chunkloader.who"))
+                            .requires(sender -> sender.getSender().hasPermission("flutstuff.who"))
                             .executes(ctx -> {
                                 showList(ctx.getSource().getSender());
                                 return 1;
@@ -43,7 +42,7 @@ public class WhoCommand {
             // /whoreg <Discord-Name>
             commands.register(
                     Commands.literal("who:reg")
-                            .requires(sender -> sender.getSender().hasPermission("chunkloader.who.register"))
+                            .requires(sender -> sender.getSender().hasPermission("flutstuff.who.register"))
                             .then(Commands.argument("discord-name", StringArgumentType.greedyString())
                                     .executes(ctx -> {
                                         if (!(ctx.getSource().getSender() instanceof Player player)) {
