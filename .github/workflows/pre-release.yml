@@ -3,7 +3,7 @@ name: Build and Pre-Release
 on:
   push:
     branches:
-      - master # Change to 'master' if your default branch uses that name
+      - master # Triggers on push to the master branch
     paths:
       - 'gradle.properties' # Triggers only when you update your project version
 
@@ -35,6 +35,9 @@ jobs:
         VERSION=$(grep "^version" gradle.properties | cut -d'=' -f2 | xargs)
         echo "VERSION=$VERSION" >> $GITHUB_ENV
         echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    - name: Grant Execute Permission for Gradlew
+      run: chmod +x gradlew
 
     - name: Build with Gradle
       run: ./gradlew build
