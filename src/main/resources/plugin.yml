@@ -46,3 +46,12 @@ permissions:
   flutstuff.timeout.immune:
     description: Kann kein Timeout erhalten
     default: false
+  flutstuff.lock:
+    description: Darf Chests sperren
+    default: true
+  flutstuff.lock.admin:
+    description: Darf alle gesperrten Chests öffnen und abbauen
+    default: op
+  flutstuff.pchest:
+    description: Darf die private Chest nutzen
+    default: true

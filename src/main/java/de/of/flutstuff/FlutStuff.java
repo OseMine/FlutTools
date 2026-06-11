@@ -37,11 +37,24 @@ public class FlutStuff extends JavaPlugin implements Listener {
         loadDiscordNamesFromData();
         loadTimeoutsFromData();
 
+        ChestLockManager lockManager = new ChestLockManager(this);
+        ChestLockListener lockListener = new ChestLockListener(this, lockManager);
+        PrivateChestCommand privateChest = new PrivateChestCommand(this);
+
         // Befehle registrieren (Brigadier)
         new ChunkLoaderCommand(this).register();
         new AdminCommand(this).register();
         new WhoCommand(this).register();
         new TimeoutCommand(this).register();
+        new LockCommand(this, lockListener).register();
+        new PrivateChestCommand(this).register();
+
+
+
+        getServer().getPluginManager().registerEvents(lockListener, this);
+        getServer().getPluginManager().registerEvents(privateChest, this);
+
+
 
         // Listener registrieren
         getServer().getPluginManager().registerEvents(this, this);

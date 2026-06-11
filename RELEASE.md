@@ -1,9 +1,10 @@
-# 🚀 Release v1.1-RELEASE
+# 🚀 Release v1.2-RELEASE
 
 ---
 
 ## ✨ Neue Funktionen (Features)
-* **/timout help command**
+* **/lock command:** Zum Locken von Chests
+* **/pchest command:** Öffnen einer Privaten Chest
 
 ## 🐛 Fehlerbehebungen (Bugfixes)
 
