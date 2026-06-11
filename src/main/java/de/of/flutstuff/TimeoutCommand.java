@@ -86,7 +86,7 @@ public class TimeoutCommand {
                                         sender.sendMessage("§8  » Kann nicht abbauen, bauen, kämpfen oder Items benutzen.");
                                         sender.sendMessage("§e§lStufe 3 §r§7- §fFull Lock");
                                         sender.sendMessage("§8  » Kann sich nicht bewegen und nichts tun. Komplett eingefroren.");
-                                        sender.sendMessage("§e§lStufe 4 §r§7- §fBan");
+                                        sender.sendMessage("§e§lStufe 4 §r§7- §fTemp-Ban");
                                         sender.sendMessage("§8  » Kann den Server nicht betreten bis das Timeout abläuft.");
 
                                         sender.sendMessage("§7§m-----------------------------");
