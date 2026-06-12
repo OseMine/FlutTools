@@ -1,10 +1,8 @@
-# 🚀 Release v1.2-RELEASE
+# 🚀 Release v1.2.1-PRE
 
 ---
 
 ## ✨ Neue Funktionen (Features)
-* **/lock command:** Zum Locken von Chests
-* **/pchest command:** Öffnen einer Privaten Chest
 
 ## 🐛 Fehlerbehebungen (Bugfixes)
 

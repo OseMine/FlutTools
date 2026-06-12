@@ -142,7 +142,7 @@ public class ChestLockListener implements Listener {
             if (!lockManager.hasAccess(block.getLocation(), uuid)
                     && !player.hasPermission("flutstuff.lock.admin")) {
                 event.setCancelled(true);
-                player.sendMessage("§cDiese Chest ist gesperrt!");
+                player.sendActionBar(Component.text("§cDiese Chest ist gesperrt!"));
             }
         }
     }
@@ -158,7 +158,7 @@ public class ChestLockListener implements Listener {
         if (!lockManager.isOwner(block.getLocation(), player.getUniqueId())
                 && !player.hasPermission("flutstuff.lock.admin")) {
             event.setCancelled(true);
-            player.sendMessage("§cDu kannst diese gesperrte Chest nicht abbauen!");
+            player.sendActionBar(Component.text("§cDu kannst diese gesperrte Chest nicht abbauen!"));
             return;
         }
 
