@@ -10,6 +10,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.block.Action;
 import java.util.HashMap;
 import java.util.Map;
+import net.kyori.adventure.text.Component;
 
 import java.util.HashSet;
 import java.util.Set;
